@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Des-Clics - Un jeu pour apprendre à cliquer</title>
+    <meta name="description" content="Un jeu pour apprendre les élèves à cliquer avec la souris">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    <h1  onclick="showNotification()">Un jeu pour apprendre à cliquer</h1>
+    <p>Faites un clic droit ou un clic gauche sur les cercles qui apparaissent</p>
+    <p id="score">Score: 0</p>
+    <p id="feedback"></p>
+    <div class="notifications" id="notifications-success"></div>
+    <div class="notifications" id="notifications-error"></div>
+    <main id="main"></main>
+    <script src='script.js'></script>
+</body>
+</html>
