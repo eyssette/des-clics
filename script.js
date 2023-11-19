@@ -58,7 +58,7 @@ function createRandomCircle() {
 
 	// Détermine aléatoirement la couleur et le texte du cercle
 	const leftClick = Math.random() < 0.5;
-	circle.className = "circle " + (leftClick ? "red" : "blue");
+	circle.className = "circle " + (leftClick ? "leftClick" : "rightClick");
 	circle.innerText = leftClick ? "Clic" : "Clic droit";
 
 	isDoubleClick = false;
@@ -66,6 +66,7 @@ function createRandomCircle() {
 	if (mode == "doubleclic" && leftClick) {
 		isDoubleClick = Math.random() < 0.5;
 		circle.innerText = isDoubleClick ? "Double clic" : "Clic";
+		circle.className = circle.className + (isDoubleClick? " doubleClick" : "")
 	}
 
 	// Positionne le cercle de manière aléatoire à l'intérieur de l'élément main
@@ -106,7 +107,7 @@ function createRandomCircle() {
 				}
 				clickCount = 0;
 				refresh(circle, score);
-			}, 200);
+			}, 400);
 		} else if (clickCount === 2) {
 			// Double clic
 			clearTimeout(clickTimeout);

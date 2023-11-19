@@ -29,11 +29,15 @@ main {
     font-size:1.2em;
 }
 
-.red {
+.leftClick {
     background-color: rgb(255, 102, 0);
 }
 
-.blue {
+.doubleClick {
+    background-color: rgb(3, 117, 54);
+}
+
+.rightClick {
     background-color: rgb(66, 1, 50);
 }
 
