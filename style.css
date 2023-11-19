@@ -26,6 +26,7 @@ main {
     cursor: pointer;
     font-weight: bold !important;
     color: white;
+    font-size:1.2em;
 }
 
 .red {
