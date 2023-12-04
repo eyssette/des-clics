@@ -6,6 +6,7 @@ const backgroundColorError = "red";
 
 const main = document.getElementById("main");
 let score = 0;
+let errors = 0;
 
 // Gestion des notifications
 let notificationContainerSuccess = document.getElementById(
@@ -93,9 +94,10 @@ function createRandomCircle() {
 			score++;
 			showFeedback(messageSuccess, true);
 		} else {
+			errors++;
 			showFeedback(messageErrorWrongClick, false);
 		}
-		refresh(circle, score);
+		refresh(circle, score, errors);
 	});
 	// Clic gauche
 	let clickCount = 0;
@@ -110,9 +112,10 @@ function createRandomCircle() {
 					score++;
 				} else {
 					showFeedback(messageErrorWrongClick, false);
+					errors++;
 				}
 				clickCount = 0;
-				refresh(circle, score);
+				refresh(circle, score, errors);
 			}, 400);
 		} else if (clickCount === 2) {
 			// Double clic
@@ -122,9 +125,10 @@ function createRandomCircle() {
 				score++;
 			} else {
 				showFeedback(messageErrorWrongClick, false);
+				errors++;
 			}
 			clickCount = 0;
-			refresh(circle, score);
+			refresh(circle, score, errors);
 		}
 	});
 
@@ -132,10 +136,13 @@ function createRandomCircle() {
 	main.appendChild(circle);
 }
 
-function refresh(circle, score) {
+function refresh(circle, score, errors) {
 	// Met à jour le score affiché
 	if (score) {
-		document.getElementById("score").innerText = "Score: " + score;
+		document.getElementById("score").innerText = "Score : " + score;
+	}
+	if (errors) {
+		document.getElementById("errors").innerText = "Erreurs : " + errors;
 	}
 
 	// Supprime le cercle actuel
@@ -150,7 +157,8 @@ function clickOutside() {
 	const childElement = main.firstChild;
 	if (event.target.tagName != "DIV") {
 		showFeedback(messageErrorClickOutside, false);
-		refresh(childElement, false);
+		errors++;
+		refresh(childElement, false, errors);
 		childElement.remove();
 	}
 }
