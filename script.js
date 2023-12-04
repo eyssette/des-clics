@@ -15,6 +15,12 @@ let notificationContainerError = document.getElementById("notifications-error");
 
 let params = new URLSearchParams(document.location.search);
 let mode = params.get("mode");
+const instructionsElement = document.getElementById("instructions");
+if (mode == "doubleclic") {
+	instructionsElement.textContent = "Faites un clic, un double clic ou un clic gauche sur les cercles qui apparaissent"
+} else {
+	instructionsElement.textContent = "Faites un clic ou un clic gauche sur les cercles qui apparaissent"
+}
 
 function showFeedback(message, success) {
 	let notification = document.createElement("div");
